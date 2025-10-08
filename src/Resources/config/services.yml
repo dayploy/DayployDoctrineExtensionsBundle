@@ -1,0 +1,37 @@
+services:
+    Dayploy\DoctrineExtensionsBundle\Cryptable\EncryptionService:
+        class: Dayploy\DoctrineExtensionsBundle\Cryptable\EncryptionService
+        public: true
+    Dayploy\DoctrineExtensionsBundle\Cryptable\CryptableService:
+        class: Dayploy\DoctrineExtensionsBundle\Cryptable\CryptableService
+        public: true
+        arguments:
+            - '@Dayploy\DoctrineExtensionsBundle\Cryptable\MethodChecker'
+            - '@Dayploy\DoctrineExtensionsBundle\Cryptable\EncryptionService'
+    Dayploy\DoctrineExtensionsBundle\Cryptable\CryptableListener:
+        class: Dayploy\DoctrineExtensionsBundle\Cryptable\CryptableListener
+        public: true
+        arguments:
+            - '@Dayploy\DoctrineExtensionsBundle\Cryptable\CryptableService'
+        tags:
+            -
+                name: 'doctrine.event_listener'
+                event: 'prePersist'
+            -
+                name: 'doctrine.event_listener'
+                event: 'preUpdate'
+            -
+                name: 'doctrine.event_listener'
+                event: 'postLoad'
+            -
+                name: 'doctrine.event_listener'
+                event: 'preFlush'
+    Dayploy\DoctrineExtensionsBundle\Cryptable\MethodChecker:
+        class: Dayploy\DoctrineExtensionsBundle\Cryptable\MethodChecker
+        public: true
+    Dayploy\DoctrineExtensionsBundle\Command:
+        class: Dayploy\DoctrineExtensionsBundle\Command\GenerateDoctrineEncryptionKeyCommand
+        public: true
+        tags:
+            -
+                name: 'console.command'
