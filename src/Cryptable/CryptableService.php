@@ -185,6 +185,10 @@ class CryptableService
     ): ?string {
         $previousPropertyName = 'doctrinePrevious' . $propertyName;
 
+        if (! property_exists($entity, $previousPropertyName)) {
+            return null;
+        }
+
         return $entity->$previousPropertyName;
     }
 }
