@@ -30,7 +30,7 @@ class MyClass
         nonceProperty: 'myValueNonce',
         encryptedProperty: 'myValueEncrypted',
     )]
-    private ?string $myValue = null; : // this value is not stored in DB
+    private ?string $myValue = null; // this value is not stored in DB
 
     #[ORM\Column(type: Types::BINARY, nullable: true, length: 2500)]
     private ?string $myValueEncrypted = null;
