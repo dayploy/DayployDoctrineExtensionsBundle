@@ -2,6 +2,8 @@
 
 Encrypt your sensitive data in your database.
 
+/!\ There is a BC BREAK between v1 and v2, see [UPGRADE.md](./UPGRADE.md) /!\
+
 # How it works
 
 Your property is in your entity but not stored directly in the database.
@@ -32,7 +34,7 @@ class MyClass
     )]
     private ?string $myValue = null; // this value is not stored in DB
 
-    #[ORM\Column(type: Types::BINARY, nullable: true, length: 2500)]
+    #[ORM\Column(type: Types::BINARY, nullable: true)]
     private ?string $myValueEncrypted = null;
     #[ORM\Column(type: Types::BINARY, nullable: true)]
     private ?string $myValueNonce = null;

@@ -27,8 +27,8 @@ class CryptableService
                     $propertyName = $property->getName();
                     $arguments = $attribute->getArguments();
 
-                    $encryptedProperty = $arguments['nonceProperty'];
-                    $nonceProperty = $arguments['encryptedProperty'];
+                    $nonceProperty = $arguments['nonceProperty'];
+                    $encryptedProperty = $arguments['encryptedProperty'];
 
                     $this->encryptEntity(
                         entity: $entity,
@@ -55,8 +55,8 @@ class CryptableService
                     $propertyName = $property->getName();
                     $arguments = $attribute->getArguments();
 
-                    $encryptedProperty = $arguments['nonceProperty'];
-                    $nonceProperty = $arguments['encryptedProperty'];
+                    $nonceProperty = $arguments['nonceProperty'];
+                    $encryptedProperty = $arguments['encryptedProperty'];
 
                     $this->decryptEntity(
                         entity: $entity,

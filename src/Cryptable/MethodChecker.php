@@ -28,8 +28,8 @@ class MethodChecker
                     $propertyName = $property->getName();
                     $arguments = $attribute->getArguments();
 
-                    $encryptedProperty = $arguments['nonceProperty'];
-                    $nonceProperty = $arguments['encryptedProperty'];
+                    $nonceProperty = $arguments['nonceProperty'];
+                    $encryptedProperty = $arguments['encryptedProperty'];
 
                     $this->checkEntity(
                         entity: $entity,
