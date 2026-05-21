@@ -46,8 +46,8 @@ class CryptableServiceTest extends KernelTestCase
     {
         $entity = new \Dayploy\DoctrineExtensionsBundle\Tests\Entity\MyClass();
         $entity->setMyValueEncrypted(null);
-        $entity->setMyValueNonce(base64_decode('WBSUiqe+HE++TCldxQIrfAkOfMNvS9Hzr+D/X5R4TmTXetk='));
-        $entity->setMyValueEncrypted(base64_decode('42cflLlWKttFw0tfYuq3IdBnSL1jJU7R'));
+        $entity->setMyValueEncrypted(base64_decode('WBSUiqe+HE++TCldxQIrfAkOfMNvS9Hzr+D/X5R4TmTXetk='));
+        $entity->setMyValueNonce(base64_decode('42cflLlWKttFw0tfYuq3IdBnSL1jJU7R'));
         $this->service->decryptValue($entity);
         $this->assertSame('some sensible value', $entity->getMyValue());
     }
